@@ -9,19 +9,19 @@ Example:
 ```
 from pytextbelt import Textbelt
 
-Recipient = Textbelt.Recipient("1122334455", "us")
+Recipient = Textbelt.Recipient("1122334455", "key here", "us")
 reponse = Recipient.send("Hello World!")
 reponse = Recipient.send("Its me, The Bot.")
 ```
 
 The construcor of Recipient Class: 
-```def __init__(self, phone, region="us", tag = None)```, ```tag``` here helps maintain custom meta information on the Recipient object.
+```def __init__(self, phone, key, region="us", tag = None)```, ```tag``` here helps maintain custom meta information on the Recipient object.
 
 ##### Available Properties: #####
  - ```Recipient.phone```
  - ```Recipient.region```
  - ```Recipient.tag```
-
+ - ```Recipient.key```
 ##### Supported Regions: #####
  - ```us``` (Defaulted)
  - ```ca``` (Canada)
