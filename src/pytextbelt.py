@@ -16,10 +16,11 @@ class Textbelt(object):
         # Available Regions
         REGIONS = { "us": "text", "ca": "canada", "intl": "intl" }
 
-        def __init__(self, phone, region="us", tag = None):
+        def __init__(self, phone, key, region="us", tag = None):
             self.region = region
             self.phone  = phone
             self.tag    = tag
+            self.key    = key
 
         @property
         def phone(self):
@@ -47,6 +48,15 @@ class Textbelt(object):
             self._tag = tag
             return self
 
+        @property
+        def key(self):
+            return self._key
+
+        @key.setter
+        def key(self, key):
+            self._key = key
+            return self
+        
         # Send The Message
         def send(self, message):
             message = str(message)
@@ -57,7 +67,8 @@ class Textbelt(object):
 
             mResponse = requests.post(mAPI, {
                 'number': self.phone,
-                'message': message
+                'message': message,
+                'key': self.key
             })
 
             return mResponse.json()
